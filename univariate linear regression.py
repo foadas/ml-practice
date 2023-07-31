@@ -3,7 +3,7 @@ import math
 
 import numpy as np
 import matplotlib.pyplot as plt
-
+from lab_utils_uni import plt_house_x, plt_contour_wgrad, plt_divergence, plt_gradients
 plt.style.use('./deeplearning.mplstyle')
 
 
@@ -104,7 +104,11 @@ ax1.set_ylabel('Cost')
 ax2.set_ylabel('Cost')
 ax1.set_xlabel('iteration step')
 ax2.set_xlabel('iteration step')
+fig1, ax = plt.subplots(1,1, figsize=(12, 6))
+plt_contour_wgrad(x_train, y_train, p_hist, ax)
+plt_divergence(p_hist, J_hist,x_train, y_train)
 plt.show()
 print(f"1000 sqft house prediction {w_final*1.0 + b_final:0.1f} Thousand dollars")
 print(f"1200 sqft house prediction {w_final*1.2 + b_final:0.1f} Thousand dollars")
 print(f"2000 sqft house prediction {w_final*2.0 + b_final:0.1f} Thousand dollars")
+
